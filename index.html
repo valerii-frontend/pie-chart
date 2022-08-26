@@ -20,9 +20,9 @@
 				justify-content: center;
 				flex-direction: column;
 				background-color: #333;
+				--part: 0%;
 			}
 			.pie {
-				--part: 0%;
 				width: 25rem;
 				height: 25rem;
 				border-radius: 50%;
@@ -36,6 +36,32 @@
 				);
 				border: 5px solid #006aff;
 				/* animation: rotate linear 20s infinite both; */
+			}
+			.block {
+				background-color: #fff;
+				width: 50rem;
+				height: 25rem;
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				align-items: flex-end;
+			}
+			.block span {
+				width: 3rem;
+				height: calc(var(--part) * 2);
+				background-color: red;
+			}
+			.block span:nth-child(2) {
+				background-color: orange;
+			}
+			.block span:nth-child(3) {
+				background-color: yellow;
+			}
+			.block span:nth-child(4) {
+				background-color: green;
+			}
+			.block span:nth-child(5) {
+				background-color: #006aff;
 			}
 			input {
 				width: 300px;
@@ -58,12 +84,19 @@
 		<div class="pie" id="pie"></div>
 		<input id="range" type="range" min="0" max="20" step="0.5" value="0" />
 		<p>0%</p>
+		<div class="block">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
 		<script>
 			const r = document.querySelector("#range");
-			const p = document.querySelector("#pie");
+			const body = document.querySelector("body");
 			const par = document.querySelector("p");
 			r.addEventListener("change", function (e) {
-				p.style.cssText = `--part:${this.value}%`;
+				body.style.cssText = `--part:${this.value}%`;
 				par.textContent = this.value + "%";
 			});
 		</script>
