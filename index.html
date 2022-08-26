@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				background-color: #333;
+			}
+			.pie {
+				--part: 0%;
+				width: 25rem;
+				height: 25rem;
+				border-radius: 50%;
+				background: conic-gradient(
+					red var(--part),
+					orange 0 calc(var(--part) * 2),
+					yellow 0 calc(var(--part) * 3),
+					green 0 calc(var(--part) * 4),
+					#006aff 0 calc(var(--part) * 5),
+					#979797 0
+				);
+				border: 5px solid #006aff;
+				/* animation: rotate linear 20s infinite both; */
+			}
+			input {
+				width: 300px;
+				margin: 10px 0;
+			}
+			p {
+				font-size: 2rem;
+				color: #f2f2f2;
+			}
+			@keyframes rotate {
+				from {
+					transform: rotate(0);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+		</style>
+
+		<div class="pie" id="pie"></div>
+		<input id="range" type="range" min="0" max="20" step="0.5" value="0" />
+		<p>0%</p>
+		<script>
+			const r = document.querySelector("#range");
+			const p = document.querySelector("#pie");
+			const par = document.querySelector("p");
+			r.addEventListener("change", function (e) {
+				p.style.cssText = `--part:${this.value}%`;
+				par.textContent = this.value + "%";
+			});
+		</script>
+	</body>
+</html>
