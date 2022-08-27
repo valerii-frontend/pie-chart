@@ -4,101 +4,25 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+		<title>Chart</title>
 	</head>
 	<body>
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
-			body {
-				min-height: 100vh;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-direction: column;
-				background-color: #333;
-				--part: 0%;
-			}
-			.pie {
-				width: 25rem;
-				height: 25rem;
-				border-radius: 50%;
-				background: conic-gradient(
-					red var(--part),
-					orange 0 calc(var(--part) * 2),
-					yellow 0 calc(var(--part) * 3),
-					green 0 calc(var(--part) * 4),
-					#006aff 0 calc(var(--part) * 5),
-					#979797 0
-				);
-				border: 5px solid #006aff;
-				/* animation: rotate linear 20s infinite both; */
-			}
-			.block {
-				background-color: #fff;
-				width: 50rem;
-				height: 25rem;
-				display: flex;
-				gap: 1rem;
-				justify-content: center;
-				align-items: flex-end;
-			}
-			.block span {
-				width: 3rem;
-				height: calc(var(--part) * 2);
-				background-color: red;
-			}
-			.block span:nth-child(2) {
-				background-color: orange;
-			}
-			.block span:nth-child(3) {
-				background-color: yellow;
-			}
-			.block span:nth-child(4) {
-				background-color: green;
-			}
-			.block span:nth-child(5) {
-				background-color: #006aff;
-			}
-			input {
-				width: 300px;
-				margin: 10px 0;
-			}
-			p {
-				font-size: 2rem;
-				color: #f2f2f2;
-			}
-			@keyframes rotate {
-				from {
-					transform: rotate(0);
-				}
-				to {
-					transform: rotate(360deg);
-				}
-			}
-		</style>
-
-		<div class="pie" id="pie"></div>
-		<input id="range" type="range" min="0" max="20" step="0.5" value="0" />
-		<p>0%</p>
-		<div class="block">
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
+		<h1 id="title"></h1>
+		<div class="wrap">
+			<div class="col">
+				<div class="pie" id="pie"></div>
+				<div class="scale">
+					<label for="scale">Scale</label>
+					<input id="scale" type="range" min="5" max="15" step="1" value="10" />
+				</div>
+			</div>
+			<div class="block"></div>
 		</div>
-		<script>
-			const r = document.querySelector("#range");
-			const body = document.querySelector("body");
-			const par = document.querySelector("p");
-			r.addEventListener("change", function (e) {
-				body.style.cssText = `--part:${this.value}%`;
-				par.textContent = this.value + "%";
-			});
-		</script>
+		<input id="value1" type="number" min="0" step="0.5" value="33" />
+		<input id="value2" type="number" min="0" step="0.5" value="33" />
+		<input id="value3" type="number" min="0" step="0.5" value="33" />
+
+		<script src="script.js"></script>
 	</body>
 </html>

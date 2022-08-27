@@ -1,0 +1,152 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #333;
+	--num: 36;
+	--color1: hwb(1 25% 50%);
+	--color2: hsl(calc(var(--num) * 2), 50%, 50%);
+	--color3: hsl(calc(var(--num) * 4), 50%, 50%);
+	--color4: hsl(calc(var(--num) * 6), 50%, 50%);
+	--color5: hsl(calc(var(--num) * 8), 50%, 50%);
+	--color6: hsl(calc(var(--num) * 10), 50%, 50%);
+	--color7: hsl(calc(var(--num) * 3), 50%, 50%);
+	--color8: hsl(calc(var(--num) * 5), 50%, 50%);
+	--color9: hsl(calc(var(--num) * 7), 50%, 50%);
+	--color10: hsl(calc(var(--num) * 9), 50%, 50%);
+	--value1: 33.333%;
+	--value2: 33.333%;
+	--value3: 33.333%;
+	--value4: initial;
+	--value5: initial;
+	--value6: initial;
+	--value7: initial;
+	--value8: initial;
+	--value9: initial;
+	--value10: initial;
+	--_value2: calc(var(--value1) + var(--value2));
+	--_value3: calc(var(--_value2) + var(--value3));
+	--_value4: calc(var(--_value3) + var(--value4));
+	--_value5: calc(var(--_value4) + var(--value5));
+	--_value6: calc(var(--_value5) + var(--value6));
+	--_value7: calc(var(--_value6) + var(--value7));
+	--_value8: calc(var(--_value7) + var(--value8));
+	--_value9: calc(var(--_value8) + var(--value9));
+	--_value10: calc(var(--_value9) + var(--value10));
+	--pieSize: 25rem;
+}
+.wrap {
+	display: flex;
+	gap: 2rem;
+}
+.col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+.scale {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	color: #fff;
+	font-size: 1.25rem;
+}
+.pie {
+	width: var(--pieSize, 25rem);
+	height: var(--pieSize, 25rem);
+	border-radius: 50%;
+	background: conic-gradient(
+		var(--color1) var(--value1),
+		var(--color2) 0 var(--_value2, 0),
+		var(--color3) 0 var(--_value3, 0),
+		var(--color4) 0 var(--_value4, 0),
+		var(--color5) 0 var(--_value5, 0),
+		var(--color6) 0 var(--_value6, 0),
+		var(--color7) 0 var(--_value7, 0),
+		var(--color8) 0 var(--_value8, 0),
+		var(--color9) 0 var(--_value9, 0),
+		var(--color10) 0 var(--_value10, 0),
+		#979797 0
+	);
+	border: 5px solid #006aff;
+	/* animation: rotate linear 20s infinite both; */
+}
+.block {
+	background-color: #fff;
+	width: 50rem;
+	height: 25rem;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	align-items: flex-end;
+}
+.block span {
+	width: 3rem;
+	height: 100px;
+	background-color: hsl(0, 50%, 50%);
+}
+.block span:nth-child(2) {
+	background-color: hsl(125, 50%, 50%);
+}
+.block span:nth-child(3) {
+	background-color: hsl(50, 50%, 50%);
+}
+.block span:nth-child(4) {
+	background-color: hsl(175, 50%, 50%);
+}
+.block span:nth-child(5) {
+	background-color: hsl(100, 50%, 50%);
+}
+.block span:nth-child(6) {
+	background-color: hsl(25, 50%, 50%);
+}
+.block span:nth-child(7) {
+	background-color: hsl(300, 50%, 50%);
+}
+.block span:nth-child(8) {
+	background-color: hsl(75, 50%, 50%);
+}
+.block span:nth-child(9) {
+	background-color: hsl(200, 50%, 50%);
+}
+.block span:nth-child(10) {
+	background-color: hsl(325, 50%, 50%);
+}
+.block span:nth-child(11) {
+	background-color: hsl(250, 50%, 50%);
+}
+.block span:nth-child(12) {
+	background-color: hsl(350, 50%, 50%);
+}
+.block span:nth-child(13) {
+	background-color: hsl(275, 50%, 50%);
+}
+.block span:nth-child(14) {
+	background-color: hsl(150, 50%, 50%);
+}
+
+input {
+	width: 300px;
+	margin: 10px 0;
+}
+p {
+	font-size: 2rem;
+	color: #f2f2f2;
+}
+@keyframes rotate {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
