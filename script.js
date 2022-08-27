@@ -1,6 +1,8 @@
-const values = document.querySelectorAll("input[id*='value']");
+let values = document.querySelectorAll("input[id*='value']");
+
 const pieScale = document.querySelector("#scale");
 const body = document.querySelector("body");
+const button = document.querySelector("button");
 const pie = document.querySelector("#pie");
 const legendElements = document.querySelectorAll("#legend li");
 const titleBlock = document.querySelector("#title");
@@ -40,4 +42,25 @@ titleBlock.addEventListener("click", function (e) {
 	});
 	titleForm.style.display = "flex";
 	if (e.target === close) addValue();
+});
+
+button.addEventListener("click", function (e) {
+	const number = document.querySelectorAll("input[id*='value']").length + 1;
+	const newItem = document.createElement("div");
+	newItem.classList.add("item");
+	const newLabel = document.createElement("label");
+	newLabel.setAttribute("for", `value${number}`);
+	newLabel.textContent = number;
+	const newItemInput = document.createElement("input");
+	newItemInput.setAttribute("id", `value${number}`);
+	newItemInput.setAttribute("id", `value${number}`);
+	newItemInput.setAttribute("type", "number");
+	newItemInput.setAttribute("min", "0");
+	newItemInput.setAttribute("step", "0.5");
+	newItemInput.setAttribute("value", "0");
+	newItem.appendChild(newLabel);
+	newItem.appendChild(newItemInput);
+	const parent = this.parentNode;
+	parent.insertBefore(newItem, this);
+	values = document.querySelectorAll("input[id*='value']");
 });
