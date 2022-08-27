@@ -17,9 +17,9 @@ body {
 	--color8: hsl(calc(var(--num) * 5), 50%, 50%);
 	--color9: hsl(calc(var(--num) * 7), 50%, 50%);
 	--color10: hsl(calc(var(--num) * 9), 50%, 50%);
-	--value1: 33.333%;
-	--value2: 33.333%;
-	--value3: 33.333%;
+	--value1: initial;
+	--value2: initial;
+	--value3: initial;
 	--value4: initial;
 	--value5: initial;
 	--value6: initial;
